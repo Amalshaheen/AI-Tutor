@@ -1,0 +1,7 @@
+{
+  "name": "Sparky - The AI Tutor",
+  "description": "An educational voice assistant for lower grade school students. Ask Sparky a question, and it will listen and respond with a spoken, kid-friendly answer.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
