@@ -1,16 +1,18 @@
-
 import React from 'react';
 import type { Message } from '../types';
 
 interface TranscriptDisplayProps {
   transcript: Message[];
+  placeHolderText: string;
+  userLabel: string;
+  modelLabel: string;
 }
 
-const TranscriptDisplay: React.FC<TranscriptDisplayProps> = ({ transcript }) => {
+const TranscriptDisplay: React.FC<TranscriptDisplayProps> = ({ transcript, placeHolderText, userLabel, modelLabel }) => {
   return (
     <div className="w-full max-w-4xl mt-4 p-4 space-y-4 overflow-y-auto bg-white/60 rounded-lg shadow-md h-64">
       {transcript.length === 0 && (
-        <p className="text-center text-gray-500">Conversation history will appear here.</p>
+        <p className="text-center text-gray-500">{placeHolderText}</p>
       )}
       {transcript.map((msg, index) => (
         <div
@@ -24,7 +26,7 @@ const TranscriptDisplay: React.FC<TranscriptDisplayProps> = ({ transcript }) => 
                 : 'bg-gray-200 text-gray-800 rounded-bl-none'
             }`}
           >
-            <span className="font-bold capitalize">{msg.role === 'model' ? 'Sparky' : 'You'}: </span>
+            <span className="font-bold capitalize">{msg.role === 'model' ? modelLabel : userLabel}: </span>
             <span>{msg.text}</span>
           </div>
         </div>
